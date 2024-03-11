@@ -1,0 +1,23 @@
+.columns {
+  display: flex;
+  margin: 30px;
+}
+.columns_item {
+  margin-right: 10px;
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+
+
+  -webkit-box-shadow: 2px 5px 11px -3px rgba(34, 60, 80, 0.25);
+  -moz-box-shadow: 2px 5px 11px -3px rgba(34, 60, 80, 0.25);
+  box-shadow: 2px 5px 11px -3px rgba(34, 60, 80, 0.25);
+}
+.widget {
+  margin-bottom: 10px;
+}
+
