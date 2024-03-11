@@ -5,11 +5,13 @@ import { Widget } from "../../widget/model/types.ts";
 interface WidgetsPanelState {
   columns: Column[];
   currentColumn: number;
+  currentWidget: string;
 }
 
 const initialState: WidgetsPanelState = {
   columns: [{ widgets: [] }, { widgets: [] }, { widgets: [] }],
   currentColumn: 1,
+  currentWidget: "",
 };
 export const widgetsPanelSlice = createSlice({
   name: "widgetsPanel",
@@ -43,6 +45,33 @@ export const widgetsPanelSlice = createSlice({
     },
     setCurrentColumn: (state, { payload }: PayloadAction<number>) => {
       state.currentColumn = payload;
+    },
+    setCurrentWidget: (state, { payload }: PayloadAction<string>) => {
+      state.currentWidget = payload;
+    },
+
+    moveWidget: (
+      state,
+      {
+        payload,
+      }: PayloadAction<{
+        columnIdFrom: number;
+        columnIdTo: number;
+        widgetIndexFrom: number;
+        widgetIndexTo: number;
+        widget: Widget;
+      }>,
+    ) => {
+      state.columns = state.columns.map((column, i) => {
+        if (payload.columnIdFrom === i) {
+          column.widgets.splice(payload.widgetIndexFrom, 1);
+        }
+        if (payload.columnIdTo === i) {
+          column.widgets.splice(payload.widgetIndexTo, 0, payload.widget);
+        }
+
+        return column;
+      });
     },
   },
 });

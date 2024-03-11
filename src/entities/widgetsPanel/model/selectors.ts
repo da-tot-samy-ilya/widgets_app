@@ -8,3 +8,6 @@ export const selectColumnById = (state: RootState, id: number) =>
 export const selectCurrentColumn = (state: RootState) => {
   return state.widgetsPanelSlice.currentColumn;
 };
+export const selectCurrentWidget = (state: RootState) => {
+  return state.widgetsPanelSlice.currentWidget;
+};

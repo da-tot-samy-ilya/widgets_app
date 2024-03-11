@@ -8,7 +8,15 @@ import { WIDGET_ACTIONS } from "../../entities/widgetsPanel/model/slice.ts";
 import { EWidgetType } from "../../entities/widget/model/types.ts";
 import { Remove } from "../../shared/ui/Remove";
 
-export const Clock: WidgetComponent = ({ widgetId, columnId }) => {
+export const Clock: WidgetComponent = ({
+  widgetId,
+  columnId,
+  onDragOver,
+  onDragLeave,
+  onDragStart,
+  onDragEnd,
+  onDrop,
+}) => {
   const initTime = getCurrTime();
   const dispatch = useAppDispatch();
 
@@ -31,7 +39,15 @@ export const Clock: WidgetComponent = ({ widgetId, columnId }) => {
   }, []);
 
   return (
-    <div className="clock__container">
+    <div
+      onDragOver={onDragOver}
+      onDragLeave={onDragLeave}
+      onDragStart={onDragStart}
+      onDragEnd={onDragEnd}
+      onDrop={onDrop}
+      className="clock__container"
+      draggable={true}
+    >
       <div className="clock__data">
         <div className="clock__time">{time.format("HH:mm:ss")}</div>
         <div className="clock__date">{time.format("D of MMMM")}</div>

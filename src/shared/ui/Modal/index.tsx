@@ -13,11 +13,13 @@ export const WidgetsModal = () => {
   const dispatch = useAppDispatch();
 
   const addWidget = useCallback((widgetType: string) => {
+    const id = Date.now();
+
     dispatch(
       WIDGET_ACTIONS.addWidget({
         columnId: currColumn,
         widget: {
-          id: String(Date.now()),
+          id: String(id),
           type: EWidgetType[widgetType as keyof typeof EWidgetType],
         },
       }),
