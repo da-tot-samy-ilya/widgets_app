@@ -33,7 +33,9 @@ export const widgetsPanelSlice = createSlice({
     ) => {
       state.columns = state.columns.map((column, i) => {
         if (i === payload.columnId) {
-          column.widgets.filter((widget) => widget.id !== payload.widget.id);
+          column.widgets = column.widgets.filter((widget) => {
+            return widget.id !== payload.widget.id;
+          });
         }
 
         return column;

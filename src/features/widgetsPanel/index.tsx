@@ -13,7 +13,7 @@ export const WidgetsPanel = () => {
             const Widget = enumToWidget(widget.type);
             return (
               <div key={widget.id} className="widget">
-                {Widget}
+                <Widget widgetId={widget.id} columnId={i} />
               </div>
             );
           })}

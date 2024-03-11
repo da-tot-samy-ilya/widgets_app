@@ -1,12 +1,22 @@
 .clock__container {
-    padding: 20px;
-    border-radius: 20px;
-    background: #efefef;
+  padding: 20px;
+  border-radius: 20px;
+  background: #efefef;
+  display: flex;
+  justify-content: space-between;
+}
+.clock__data {
+  display: flex;
+  flex-direction: column;
+}
+.clock__manage {
+  display: flex;
+  flex-direction: column;
 }
 .clock__time {
-    font-size: 50px;
+  font-size: 50px;
 }
 .clock__date {
-    color: #ff4646;
-    font-size: 20px;
+  color: #ff4646;
+  font-size: 20px;
 }

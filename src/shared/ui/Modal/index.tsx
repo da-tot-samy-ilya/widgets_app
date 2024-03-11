@@ -6,13 +6,13 @@ import { useCallback } from "react";
 import { MODAL_ACTIONS } from "./model/slice.ts";
 import { WIDGET_ACTIONS } from "../../../entities/widgetsPanel/model/slice.ts";
 import { selectCurrentColumn } from "../../../entities/widgetsPanel/model/selectors.ts";
+import { enumToText } from "../../../features/widgetsPanel/lib/enumToText.ts";
 
 export const WidgetsModal = () => {
   const currColumn = useAppSelector(selectCurrentColumn);
   const dispatch = useAppDispatch();
 
   const addWidget = useCallback((widgetType: string) => {
-    console.log(currColumn);
     dispatch(
       WIDGET_ACTIONS.addWidget({
         columnId: currColumn,
@@ -36,7 +36,7 @@ export const WidgetsModal = () => {
         <ul>
           {Object.keys(EWidgetType).map((widgetType) => (
             <div key={widgetType} onClick={() => addWidget(widgetType)}>
-              {widgetType}
+              {enumToText(EWidgetType[widgetType as keyof typeof EWidgetType])}
             </div>
           ))}
         </ul>
