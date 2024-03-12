@@ -1,0 +1,9 @@
+.refresh {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition-duration: 200ms;
+  &:hover {
+    opacity: 0.5;
+  }
+}

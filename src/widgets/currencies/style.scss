@@ -1,0 +1,17 @@
+.currencies {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #d8b4ff;
+}
+.currencies__manage {
+  display: flex;
+  & div {
+    margin-left: 7px;
+  }
+}
+.currencies__symbol {
+  opacity: 0.4;
+  font-size: 13px;
+}

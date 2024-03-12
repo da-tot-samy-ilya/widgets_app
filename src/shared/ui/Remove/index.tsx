@@ -7,8 +7,8 @@ interface Props {
 
 export const Remove = ({ onClick }: Props) => {
   return (
-    <button onClick={onClick} className="icon__remove">
+    <div onClick={onClick} className="icon__remove">
       <img src={remove} alt="" />
-    </button>
+    </div>
   );
 };

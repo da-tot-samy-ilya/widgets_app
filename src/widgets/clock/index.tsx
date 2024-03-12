@@ -24,9 +24,9 @@ export const Clock: WidgetComponent = ({
 
   useEffect(() => {
     setTimeout(() => {
-      const seconds = time.second();
-      setTime(time.second(seconds + 1));
-    }, 1000);
+      const minute = time.minute();
+      setTime(time.minute(minute + 1));
+    }, 60_000);
   }, [time]);
 
   const removeWidget = useCallback(() => {
@@ -49,8 +49,8 @@ export const Clock: WidgetComponent = ({
       draggable={true}
     >
       <div className="clock__data">
-        <div className="clock__time">{time.format("HH:mm:ss")}</div>
-        <div className="clock__date">{time.format("D of MMMM")}</div>
+        <div className="clock__time">{time.format("HH:mm")}</div>
+        <div className="clock__date">{time.format("D of MMMM, dddd")}</div>
       </div>
       <div className="clock__manage">
         <Remove onClick={removeWidget} />

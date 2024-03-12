@@ -11,6 +11,7 @@ import { DragEventHandler } from "react";
 import { Widget } from "../../entities/widget/model/types.ts";
 import { WIDGET_ACTIONS } from "../../entities/widgetsPanel/model/slice.ts";
 import { widgetMock } from "../../entities/widgetsPanel/model/mocks.ts";
+
 export const WidgetsPanel = () => {
   const columns = useAppSelector(selectColumns);
   const dispatch = useAppDispatch();
@@ -64,10 +65,37 @@ export const WidgetsPanel = () => {
     );
   };
 
+  function onDropColumn(e: React.DragEvent<HTMLDivElement>, column: number) {
+    e.preventDefault();
+    const currIndex = columns[currColumnId].widgets.findIndex(
+      (internalWidget) => internalWidget.id === currWidgetId,
+    );
+
+    const currWidgetObject =
+      columns[currColumnId].widgets.find(
+        (widget) => widget.id === currWidgetId,
+      ) || widgetMock;
+
+    dispatch(
+      WIDGET_ACTIONS.moveWidget({
+        widgetIndexTo: 0,
+        widgetIndexFrom: currIndex,
+        columnIdTo: column,
+        columnIdFrom: currColumnId,
+        widget: currWidgetObject,
+      }),
+    );
+  }
+
   return (
     <div className="columns">
       {columns.map((column, i) => (
-        <div key={i} className="columns_item">
+        <div
+          onDragOver={onDragOver}
+          onDrop={(e) => onDropColumn(e, i)}
+          key={i}
+          className="columns_item"
+        >
           {column.widgets.map((widget) => {
             const Widget = enumToWidget(widget.type);
 
