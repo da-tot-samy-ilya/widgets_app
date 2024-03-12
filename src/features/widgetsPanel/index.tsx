@@ -7,7 +7,7 @@ import {
 import "./style.scss";
 import { enumToWidget } from "./lib/enumToWidget.tsx";
 import { AddWidget } from "../../shared/ui/AddWidget";
-import { DragEventHandler } from "react";
+import { DragEvent, DragEventHandler } from "react";
 import { Widget } from "../../entities/widget/model/types.ts";
 import { WIDGET_ACTIONS } from "../../entities/widgetsPanel/model/slice.ts";
 import { widgetMock } from "../../entities/widgetsPanel/model/mocks.ts";
@@ -27,7 +27,7 @@ export const WidgetsPanel = () => {
     e.preventDefault();
   };
   const onDragStart = (
-    e: React.DragEvent<HTMLDivElement>,
+    _: DragEvent<HTMLDivElement>,
     widget: Widget,
     column: number,
   ) => {
@@ -40,6 +40,9 @@ export const WidgetsPanel = () => {
     column: number,
   ) => {
     e.preventDefault();
+    if (columns[column].widgets.length <= 0) {
+      return;
+    }
 
     const currIndex = columns[currColumnId].widgets.findIndex(
       (internalWidget) => internalWidget.id === currWidgetId,
@@ -67,6 +70,11 @@ export const WidgetsPanel = () => {
 
   function onDropColumn(e: React.DragEvent<HTMLDivElement>, column: number) {
     e.preventDefault();
+
+    if (columns[column].widgets.length > 0) {
+      return;
+    }
+
     const currIndex = columns[currColumnId].widgets.findIndex(
       (internalWidget) => internalWidget.id === currWidgetId,
     );

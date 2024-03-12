@@ -6,6 +6,8 @@ export const enumToText = (widget: EWidgetType) => {
       return "Часы";
     case EWidgetType.CURRENCIES:
       return "Курсы валют";
+    case EWidgetType.WEATHER:
+      return "Погода в городах";
     default:
       return "Часы";
   }
