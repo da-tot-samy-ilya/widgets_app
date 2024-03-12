@@ -34,7 +34,7 @@ export const Currencies: WidgetComponent = ({
     setIsLoading(false);
 
     setCurrencies(data.data);
-    setCurrCoin(data.data[0]);
+    setCurrCoin(currCoin || data.data[0]);
   };
 
   useEffect(() => {

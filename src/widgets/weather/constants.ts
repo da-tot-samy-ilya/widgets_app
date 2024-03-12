@@ -1,46 +1,46 @@
 export const TOWNS = [
   {
-    symbol: "Kabul",
+    symbol: "KABUL",
     name: "Kabul",
   },
   {
-    symbol: "Baku",
+    symbol: "BAKU",
     name: "Baku",
   },
   {
-    symbol: "Minsk",
+    symbol: "MINSK",
     name: "Minsk",
   },
   {
-    symbol: "Sofia",
+    symbol: "SOFIA",
     name: "Sofia",
   },
   {
-    symbol: "Ottawa",
+    symbol: "OTTAWA",
     name: "Ottawa",
   },
   {
-    symbol: "London",
+    symbol: "LONDON",
     name: "London",
   },
   {
-    symbol: "Dublin",
+    symbol: "DUBLIN",
     name: "Dublin",
   },
   {
-    symbol: "Roma",
+    symbol: "ROMA",
     name: "Roma",
   },
   {
-    symbol: "Moscow",
+    symbol: "MOSCOW",
     name: "Moscow",
   },
   {
-    symbol: "Seoul",
+    symbol: "SEOUL",
     name: "Seoul",
   },
   {
-    symbol: "Kyiv",
+    symbol: "KYIV",
     name: "Kyiv",
   },
 ];

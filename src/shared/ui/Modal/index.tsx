@@ -34,15 +34,26 @@ export const WidgetsModal = () => {
   return createPortal(
     <div className="modal-overlay">
       <div className="modal">
-        <h1>Choose widget</h1>
-        <ul>
-          {Object.keys(EWidgetType).map((widgetType) => (
-            <div key={widgetType} onClick={() => addWidget(widgetType)}>
-              {enumToText(EWidgetType[widgetType as keyof typeof EWidgetType])}
-            </div>
-          ))}
+        <h1>Выберите виджет</h1>
+        <ul className="modal__widgets-list">
+          {Object.keys(EWidgetType).map((widgetType) => {
+            const item = enumToText(
+              EWidgetType[widgetType as keyof typeof EWidgetType],
+            );
+            return (
+              <div
+                className="modal__widget"
+                onClick={() => addWidget(widgetType)}
+              >
+                <p key={widgetType}>{item.name}</p>
+                <img src={item.img} alt="" />
+              </div>
+            );
+          })}
         </ul>
-        <button onClick={closeModal}>Close</button>
+        <button className="modal__close" onClick={closeModal}>
+          Close
+        </button>
       </div>
     </div>,
     document.body,

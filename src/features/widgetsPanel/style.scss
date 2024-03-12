@@ -19,5 +19,16 @@
 }
 .widget {
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
+@media (max-width: 900px) {
+  .columns {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .columns_item {
+    margin-bottom: 20px;
+    max-width: 500px;
+  }
+}
