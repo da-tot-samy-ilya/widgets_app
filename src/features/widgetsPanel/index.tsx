@@ -22,7 +22,9 @@ export const WidgetsPanel = () => {
   const onDragEnd: DragEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
   };
-  const onDragLeave: DragEventHandler<HTMLDivElement> = (e) => {};
+  const onDragLeave: DragEventHandler<HTMLDivElement> = (e) => {
+    e.preventDefault();
+  };
   const onDragOver: DragEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
   };
